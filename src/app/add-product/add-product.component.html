@@ -1,0 +1,49 @@
+<app-admin-nav></app-admin-nav>
+<h3 class="text-center">Add New Product</h3>
+<form [formGroup]="addProductForm" (ngSubmit)="addProduct()">
+  <div class="form-group">
+    <label for="name">Product Name</label>
+    <input formControlName="name" class="form-control" id="name" />
+    <div *ngIf="addProductForm.get('name')?.invalid && addProductForm.get('name')?.touched" class="text-danger">
+      Name is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="price">Price</label>
+    <input formControlName="price" type="number" class="form-control" id="price" />
+    <div *ngIf="addProductForm.get('price')?.invalid && addProductForm.get('price')?.touched" class="text-danger">
+      Price must be a positive number.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="description">Description</label>
+    <textarea formControlName="description" class="form-control" id="description"></textarea>
+    <div *ngIf="addProductForm.get('description')?.invalid && addProductForm.get('description')?.touched" class="text-danger">
+      Description is required.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="category">Category</label>
+    <input formControlName="category" class="form-control" id="category" />
+    <div *ngIf="addProductForm.get('category')?.invalid && addProductForm.get('category')?.touched" class="text-danger">
+        Category must be one of: Main Dishes, Desserts, Appetizers, Drinks.
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="image">Image URL</label>
+    <input formControlName="image" class="form-control" id="image" />
+    <div *ngIf="addProductForm.get('image')?.invalid && addProductForm.get('image')?.touched" class="text-danger">
+      Image URL is required.
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-success" [disabled]="addProductForm.invalid">Add Product</button>
+
+  <div *ngIf="errorMessage" class="text-danger mt-2">
+    {{ errorMessage }}
+  </div>
+</form>

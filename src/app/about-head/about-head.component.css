@@ -1,0 +1,14 @@
+.about-content {
+  background-color: #323232;
+  color: white;
+  height: 250px;
+  width: 400px;
+  bottom: -30px;
+  right: -1px;
+}
+.about-content h6 {
+  font-size: 1.5rem;
+}
+.about-raight h3 {
+  font-size: 2.5rem;
+}

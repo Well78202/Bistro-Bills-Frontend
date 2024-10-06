@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="text-center">
+    <h1 class="text-big">Book A Table</h1>
+    <p>
+      We consider all the drivers of change gives you the components <br />
+      you need to change to create a truly happens.
+    </p>
+  </div>
+  <form class="my-5 form-container" [formGroup]="bookingForm" (ngSubmit)="onSubmit()">
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="date" class="form-label">Date</label>
+        <input
+          type="date"
+          id="date"
+          class="form-control"
+          formControlName="date"
+        />
+        <div *ngIf="isFieldValid('date')" class="text-danger">
+          Date is required.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="time" class="form-label">Time</label>
+        <input
+          type="time"
+          id="time"
+          class="form-control"
+          formControlName="time"
+        />
+        <div *ngIf="isFieldValid('time')" class="text-danger">
+          Time is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          id="name"
+          class="form-control"
+          placeholder="Enter your name"
+          formControlName="name"
+        />
+        <div *ngIf="isFieldValid('name')" class="text-danger">
+          Name is required and must be at least 3 characters long.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="phone" class="form-label">Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          class="form-control"
+          placeholder="x-xxx-xxx-xxxx"
+          formControlName="phone"
+        />
+        <div *ngIf="isFieldValid('phone')" class="text-danger">
+          Phone is required and must match the format x-xxx-xxx-xxxx.
+        </div>
+      </div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="totalPerson" class="form-label">Total Person</label>
+        <select
+          id="totalPerson"
+          class="form-select"
+          formControlName="totalPerson"
+        >
+          <option value="1">1 Person</option>
+          <option value="2">2 Persons</option>
+          <option value="3">3 Persons</option>
+          <option value="4">4 Persons</option>
+          <option value="5">5 Persons</option>
+        </select>
+        <div *ngIf="isFieldValid('totalPerson')" class="text-danger">
+          Please select the total number of persons.
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button type="submit" class="btn btn-danger btn-lg">Book A Table</button>
+    </div>
+    <div *ngIf="successMessage" class="alert alert-success mt-3">
+      {{ successMessage }}
+    </div>
+  </form>
+</div>

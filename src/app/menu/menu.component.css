@@ -1,0 +1,23 @@
+.card:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.col-md-3 {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.card-body {
+  flex-grow: 1; /* This will allow the card content to grow and match heights */
+}

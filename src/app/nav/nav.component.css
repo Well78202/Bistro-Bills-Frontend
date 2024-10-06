@@ -1,0 +1,28 @@
+.contact{
+    background-color: #474747;
+    height: 60px;
+    color: #fff;
+}
+.icon-circle{
+    background-color: #747373;
+    width: 30px ;
+    height: 30px;
+    padding-inline: 5px;
+    display: block;
+    margin-inline: 5px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.icon-circle i{
+    color: #fff;
+    font-size: 19px;
+}
+.bg-nav{
+    background-color: #DBDFD0;
+}
+.nav-link{
+    color: #232323;
+}

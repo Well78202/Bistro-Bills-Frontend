@@ -1,0 +1,45 @@
+.hero {
+  background-image: url(../../assets/images/hone.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.hero h1 {
+  font-size: 5rem;
+}
+.hero .btn1 {
+  color: #fff;
+}
+.hero .btn {
+  font-size: 25px;
+}
+
+.menu h1 {
+  font-size: 60px;
+}
+.card-icon {
+  padding-block: 20px;
+}
+.card-icon img {
+  background-color: #e5dfdf;
+  padding: 18px;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+}
+.card a {
+  color: red;
+  text-decoration: none;
+}
+.about {
+  background-color: #eeeeea;
+}
+.large{
+  font-size: 50px;
+}

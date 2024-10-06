@@ -1,0 +1,50 @@
+<app-admin-nav></app-admin-nav>
+<h3 class="text-center">Update Product</h3>
+<div class="container" *ngIf="product">
+  <form [formGroup]="updateForm" (ngSubmit)="confirmUpdate(product)">
+    <div class="form-group">
+      <label for="name">Product Name</label>
+      <input formControlName="name" class="form-control" id="name" />
+      <div *ngIf="updateForm.get('name')?.invalid && (updateForm.get('name')?.touched || updateForm.get('name')?.dirty)" class="text-danger">
+        Product name is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input formControlName="price" type="number" class="form-control" id="price" />
+      <div *ngIf="updateForm.get('price')?.invalid && (updateForm.get('price')?.touched || updateForm.get('price')?.dirty)" class="text-danger">
+        Valid price is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea formControlName="description" class="form-control" id="description"></textarea>
+      <div *ngIf="updateForm.get('description')?.invalid && (updateForm.get('description')?.touched || updateForm.get('description')?.dirty)" class="text-danger">
+        Description is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input formControlName="category" class="form-control" id="category" />
+      <div *ngIf="updateForm.get('category')?.invalid && (updateForm.get('category')?.touched || updateForm.get('category')?.dirty)" class="text-danger">
+        Category is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input formControlName="image" class="form-control" id="image" />
+      <div *ngIf="updateForm.get('image')?.invalid && (updateForm.get('image')?.touched || updateForm.get('image')?.dirty)" class="text-danger">
+        Image URL is required.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="updateForm.invalid || loading">Update Product</button>
+  </form>
+  
+  <div *ngIf="loading">
+    <span class="loader"></span>
+  </div>
+  
+  <div *ngIf="errorMessage" class="text-danger">
+    <p>{{ errorMessage }}</p>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<app-admin-nav></app-admin-nav>
+<div class="container">
+  <div class="row">
+    <div *ngIf="loading" class="text-center">
+      <span class="loader"></span>
+    </div>
+    <div *ngIf="errorMessage" class="text-danger text-center">
+      {{ errorMessage }}
+    </div>
+    <div *ngIf="!loading && products.length === 0" class="text-center">
+      No products available.
+    </div>
+    <div class="col-md-2 mb-4" *ngFor="let product of products">
+      <div class="card shadow-lg border-light rounded-4">
+        <img
+          class="card-img-top img-fluid"
+          [src]="product.image"
+          alt="{{ product.name }}"
+        />
+        <div class="card-body text-center">
+          <h4 class="card-title font-weight-bold">{{ product.name }}</h4>
+          <h5 class="text-success">${{ product.price.toFixed(2) }}</h5>
+          <p class="card-text text-muted">{{ product.description }}</p>
+          <a class="btn btn-primary mt-2" [routerLink]="['/update', product._id]"
+          >
+            Update
+          </a>
+          <a class="mx-1 btn btn-danger mt-2" (click)="confirmDelete(product._id)">
+            Delete
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 mb-4 ">
+    <button routerLink="/add" class="btn btn-danger padd shadow-lg border-light rounded-4">
+        +
+    </button>
+  </div>
+</div>
